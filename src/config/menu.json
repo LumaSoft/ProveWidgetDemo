@@ -1,0 +1,39 @@
+{
+	"menu": [
+		{
+			"slug" : "trade",	
+			"title": "Trading",
+			"subsection": 
+			[
+				{
+				"slug" : "trade",
+				"title": "Trade",
+				"icon" : "fas fa-layer-group",
+				"href" : "/trade/viewall",
+				"partial": "all-firebase-users"
+				},
+				{
+				"slug" : "boxes",
+				"title": "Boxes",
+				"icon" : "fas fa-layer-group",
+				"href" : "/box/viewall",
+				"partial": "box"
+				}
+			]
+		},
+		{
+			"slug" : "account",	
+			"title": "Account",
+			"subsection": 
+			[
+				{
+				"slug" : "profile",
+				"title": "Profile",
+				"icon" : "fa-solid fa-user",
+				"href" : "/profile",
+				"partial": "profile"
+				}
+			]
+		}
+	]
+}

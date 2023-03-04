@@ -1,0 +1,60 @@
+<div class="wrapper wrapper-login">
+    <div class="container container-login animated fadeIn">
+        
+        <h3 class="text-center"><b>Unique Trust Check Demo</b></h3>
+        
+        <button id="btnProveDemo" onclick="launchProveApp()" class="btn btn-black btn-block">
+            Launch Unique Trust Check
+        </button>
+    </div>
+</div>
+
+
+{{#section 'script'}}
+
+    <script type="application/javascript">
+
+        function launchProveApp() {
+            $.post("/createWidgetUrl",{"uuid": "randomuserid"},function(publicToken){
+                //Pass publicToken into the widget for the user to go through the flow
+                openProveApp(publicToken, "randomuserid")
+            })
+        }
+
+        function openProveApp(publicToken, uid) {
+            if (window.VerifyWithProve && publicToken) {
+                window.VerifyWithProve.open({
+                    publicToken: publicToken,
+                    onSuccess: () => {
+                        //User has been successfully verified
+                        window.VerifyWithProve.closeWidget()
+                        swal("Verified!", "You have been successfully verified!", {
+                            icon : "success",
+                            buttons: {
+                                confirm: {
+                                    text: "Continue",
+                                    value: true,
+                                    visible: true,
+                                    className: "btn btn-success",
+                                    closeModal: true
+                                }
+                            }
+                        })
+                    },
+                    onFailure: () => {
+                        //Display a error message letting the user know that they failed the check
+                        alert('Auth Failed - We are unable to verify you are a human.')
+                    },
+                    onExit: () => {
+                        $("#btnProveDemo").removeClass("is-loading").removeClass("disabled"); 
+                    }
+                });
+            } else {
+                // not ready yet
+                console.log("not ready yet")
+            }
+        }
+    </script>
+
+{{/section}}
+

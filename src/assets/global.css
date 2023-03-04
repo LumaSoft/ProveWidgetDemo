@@ -1,0 +1,135 @@
+﻿body {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px; 
+    color: #777;
+}
+.form-control{
+    font-size: 20px; 
+    font-weight: 300;
+}
+
+.btn-white{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc
+}
+
+.btn-black{
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #ccc
+}
+
+.btn-outline{    
+    color: #122355;
+    border: 1px solid #122355
+
+}
+
+.logo-header{
+    width: 250px;
+}
+#headerLogoLeft{
+    width: 50px;    
+}
+.hidden{
+    display: none;
+}
+.shownativeonly{
+    display: none;
+}
+
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.swal-text{
+    text-align: center;
+}
+
+.swal-overlay--show-modal{
+    z-index: 99999;
+}
+
+
+.show-xs-sm,
+.show-xs{
+    display: none;
+}
+
+@media (max-width: 320px){
+    #headerLogoLeft{
+        width: 25px;
+    }
+    #lblAppTitle{
+        font-size: 14px !important;
+    }
+}
+@media (max-width: 767px){
+    .hidden-xs{
+        display: none;
+    }           
+    .show-xs{
+        display: block;
+    }           
+}
+@media (max-width: 1023px){    
+    .show-xs-sm{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 40em) {
+    td, th {
+        display: block;
+    }
+  }
+
+.mainBG
+{
+    background-color: #fff;
+
+}
+
+
+.sidebar .nav > .nav-item > a:hover, .sidebar .nav > .nav-item a:focus, .sidebar[data-background-color=white] .nav > .nav-item > a:hover, .sidebar[data-background-color=white] .nav > .nav-item a:focus
+{
+    background-color: #1388ba !important;
+}
+.sidebar .nav > .nav-item a:hover p, .sidebar .nav > .nav-item a:focus p, .sidebar[data-background-color=white] .nav > .nav-item a:hover p, .sidebar[data-background-color=white] .nav > .nav-item a:focus p{
+    color: #fff !important;
+    font-weight: 500;
+}
+.sidebar .nav.nav-secondary > .nav-item a:hover i, .sidebar .nav.nav-secondary > .nav-item a:focus i, .sidebar .nav.nav-secondary > .nav-item a[data-toggle=collapse][aria-expanded=true] i, .sidebar[data-background-color=white] .nav.nav-secondary > .nav-item a:hover i, .sidebar[data-background-color=white] .nav.nav-secondary > .nav-item a:focus i, .sidebar[data-background-color=white] .nav.nav-secondary > .nav-item a[data-toggle=collapse][aria-expanded=true] i{
+    color: #fff !important;
+}
+
+.table-hover tbody tr:hover{
+    background-color: #1388ba !important;    
+    color: #fff;
+    ;
+}
+
+.table-hover tbody tr:hover .btn-secondary{
+    border-color: #eee !important;
+}
+
+.table-hover tbody tr:hover a{
+    color: #fff !important;    
+}
+._id {
+    display: none;
+}
