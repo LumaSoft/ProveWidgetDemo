@@ -87,6 +87,51 @@ if (window.VerifyWithProve && publicToken) {
 
 Step #3:
 - Create a webhook to listen for if the user has been successfully verified
+- Webhook must be signed
+
+Code to write signature validation
+const crypto = require('crypto');
+​
+function authenticateWebhook(url, requestBody, signature) {
+  const isValid = verifyRequestSignature(url, requestBody, signature);
+  return isValid;
+}
+​
+function verifyRequestSignature(url, requestBody, webhookSignature) {
+  const requestSignature = webhookSignature;
+  const requestSignatureBuffer = Buffer.from(requestSignature, 'utf8');
+  const contentSignature = calcSignature(url, requestBody);
+  const contentSignatureBuffer = Buffer.from(contentSignature, 'utf8');
+  return crypto.timingSafeEqual(requestSignatureBuffer, contentSignatureBuffer);
+}
+​
+function calcSignature(url, data = '') {
+  const payload = data !== "" ? JSON.stringify(data) : '';
+  const dataToBeSigned = Buffer.from(url + payload);
+  const hmac = crypto.createHmac('sha256', PROVE_PORTAL_API_SECRET);
+  return hmac.update(dataToBeSigned).digest('hex').toUpperCase();
+}
+
+
+//**SUCCESS RESPONSE**/
+{
+    "webhookType": "HUMAN_CHECK,
+    "webhookCode": "STATUS_UPDATED",
+    "identityVerificationId": "idv_52xR9LKo77r1Np",
+    "verified": true,
+    "env": "production" //"production" || "sandbox"
+}
+
+ 
+//** FAILURE RESPONSE**/
+{
+    "webhookType": "HUMAN_CHECK",
+    "webhookCode": "STATUS_UPDATED",
+    "identityVerificationId": "idv_52xR9LKo77r1Np",
+    "verified": false,
+    "failureReason": "", //interpeted reason code for Pre-fill (otherwise, just string value)
+    "env": "production"
+}
 
 ```javascript
 let webhook_type = req.body.webhook_type;
