@@ -92,12 +92,12 @@ Step #3:
 Signature validation example
 ```javascript
 const crypto = require('crypto');
-​
+
 function authenticateWebhook(url, requestBody, signature) {
   const isValid = verifyRequestSignature(url, requestBody, signature);
   return isValid;
 }
-​
+
 function verifyRequestSignature(url, requestBody, webhookSignature) {
   const requestSignature = webhookSignature;
   const requestSignatureBuffer = Buffer.from(requestSignature, 'utf8');
@@ -105,7 +105,7 @@ function verifyRequestSignature(url, requestBody, webhookSignature) {
   const contentSignatureBuffer = Buffer.from(contentSignature, 'utf8');
   return crypto.timingSafeEqual(requestSignatureBuffer, contentSignatureBuffer);
 }
-​
+
 function calcSignature(url, data = '') {
   const payload = data !== "" ? JSON.stringify(data) : '';
   const dataToBeSigned = Buffer.from(url + payload);
