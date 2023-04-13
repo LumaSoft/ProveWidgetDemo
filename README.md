@@ -114,7 +114,7 @@ function calcSignature(url, data = '') {
 }
 ````
 
-//**SUCCESS RESPONSE**/
+**SUCCESS RESPONSE**
 ```javascript
 {
     "webhookType": "HUMAN_CHECK,
@@ -126,7 +126,7 @@ function calcSignature(url, data = '') {
 ````
 
  
-//** FAILURE RESPONSE**/
+**FAILURE RESPONSE**
 ```javascript
 {
     "webhookType": "HUMAN_CHECK",
