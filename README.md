@@ -21,7 +21,10 @@ Step #1:
 - Include shim.js in your HTML page
 
 ```javascript
-https://cdn.sparkwallet.io/shim.js
+<head>
+<script src="https://cdn.sparkwallet.io/shim.js"></script>
+</head>
+
 ```
 
 - Call the API with the UUID and include your clientId and secret from the Prove Portal  
