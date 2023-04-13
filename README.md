@@ -18,7 +18,14 @@ To run the project you must:
 ## Documentation
 
 Step #1:
+- Include shim.js in your HTML page
+
+```javascript
+https://cdn.sparkwallet.io/shim.js
+```
+
 - Call the API with the UUID and include your clientId and secret from the Prove Portal  
+
 
 ```javascript
 fetch("https://proveapi.sparkwallet.io/api/auth/production/link/token/create", {
