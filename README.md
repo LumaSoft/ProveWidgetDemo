@@ -18,17 +18,7 @@ To run the project you must:
 ## Documentation
 
 Step #1:
-- Include shim.js in your HTML page
-
-```javascript
-<head>
-<script src="https://cdn.sparkwallet.io/shim.js"></script>
-</head>
-
-```
-
 - Create a server side API to retrieve the widget publicToken
-
 
 ```javascript
 fetch("https://proveapi.sparkwallet.io/api/auth/production/link/token/create", {
@@ -59,6 +49,16 @@ fetch("https://proveapi.sparkwallet.io/api/auth/production/link/token/create", {
 ```
 
 Step #2:
+- Include shim.js in your HTML page
+
+```javascript
+<head>
+<script src="https://cdn.sparkwallet.io/shim.js"></script>
+</head>
+
+```
+
+Step #3:
 - Call your server side API that returns the publicToken and pass it into widget publicToken field
 
 ```javascript
@@ -95,7 +95,7 @@ if (window.VerifyWithProve && publicToken) {
 }
 ```
 
-Step #3:
+Step #4:
 - Create a webhook to listen for if the user has been successfully verified
 - Webhook must be signed
 
