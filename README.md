@@ -27,7 +27,7 @@ Step #1:
 
 ```
 
-- Call the API with the UUID and include your clientId and secret from the Prove Portal  
+- Create a server side API to retrieve the widget publicToken
 
 
 ```javascript
@@ -59,7 +59,7 @@ fetch("https://proveapi.sparkwallet.io/api/auth/production/link/token/create", {
 ```
 
 Step #2:
-- Use the returned publicToken to open the widget
+- Call your server side API that returns the publicToken and pass it into widget publicToken field
 
 ```javascript
 if (window.VerifyWithProve && publicToken) {
